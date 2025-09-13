@@ -14,3 +14,9 @@ sample end-to-end setup for an API mocker. I’ll show you a practical way using
 🔹 Create **server.js**
 
 ✅ Now you just run: **node server.js**
+
+✅ When you hit:
+
+GET http://localhost:9438/tokenKey → it will read and return responses/token.json
+
+GET http://localhost:9438/details → it will read and return responses/bio.json
