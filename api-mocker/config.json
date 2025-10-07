@@ -1,0 +1,244 @@
+{
+    "port": 9437,
+    "routes": [
+        {
+            "method": "GET",
+            "path": "/tokenKey",
+            "response": {
+                "status": 200,
+                "file": "mocks/token.json"
+            }
+        },
+        {
+            "method": "GET",
+            "path": "/details",
+            "response": {
+                "status": 200,
+                "file": "mocks/bio.json"
+            }
+        },
+        {
+            "method": "GET",
+            "path": "/accounts/:accountid",
+            "switch": [
+                "accountid"
+            ],
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/accounts.json"
+                }
+            },
+            "switchResponses": {
+                "30080012343456": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/30080012343456.accounts.json"
+                },
+                "30080098763459": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/30080098763459.accounts.json"
+                }
+            }
+        },
+        {
+            "path": "/payments",
+            "method": "POST",
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "paymentId",
+                    "switch": "$.Data.PaymentId"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 500,
+                    "mockFile": "mocks/payments.failure.json"
+                }
+            },
+            "switchResponses": {
+                "58991daf-c481-49b2-8917-3cab9233fe58-25": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/payments.success.json"
+                }
+            }
+        },
+        {
+            "path": "/paymentPortal/getPaymentStatus",
+            "method": "POST",
+            "latency": 20,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "paymentId",
+                    "switch": "$.Data.PaymentId"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "consentId",
+                    "switch": "$.Data.ConsentId"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "status",
+                    "switch": "$.Data.Status"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "debtorSecondaryId",
+                    "switch": "$.Data.Initiation.DebtorAccount.SecondaryIdentification"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "debtorScheme",
+                    "switch": "$.Data.Initiation.DebtorAccount.SchemeName"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "debtorAccountId",
+                    "switch": "$.Data.Initiation.DebtorAccount.Identification"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "debtorName",
+                    "switch": "$.Data.Initiation.DebtorAccount.Name"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "creditorSecondaryId",
+                    "switch": "$.Data.Initiation.CreditorAccount.SecondaryIdentification"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "creditorScheme",
+                    "switch": "$.Data.Initiation.CreditorAccount.SchemeName"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "creditorAccountId",
+                    "switch": "$.Data.Initiation.CreditorAccount.Identification"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "creditorName",
+                    "switch": "$.Data.Initiation.CreditorAccount.Name"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "amount",
+                    "switch": "$.Data.Initiation.InstructedAmount.Amount"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "currency",
+                    "switch": "$.Data.Initiation.InstructedAmount.Currency"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 404,
+                    "mockFile": "mocks/default.failure.json"
+                }
+            },
+            "switchResponses": {
+                "58991daf-c481-49b2-8917-3cab9233fe58-2558991daf-c481-49b2-8917-3cab9233fe58AcceptedSettlementCompleted080801562314789OB.SortCodeAccountNumber08080025612489Jane Smith0002OB.SortCodeAccountNumber08080021325698ACME Inc165.88GBP": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/apiPayment.getPaymentStatus.success.json"
+                }
+            }
+        },
+        {
+            "path": "/accounts/getBalance",
+            "method": "POST",
+            "latency": 20,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "accountId",
+                    "switch": "$.Data.Balance[0].AccountId"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "creditDebitIndicator",
+                    "switch": "$.Data.Balance[0].CreditDebitIndicator"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "type",
+                    "switch": "$.Data.Balance[0].Type"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "dateTime",
+                    "switch": "$.Data.Balance[0].DateTime"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "amount",
+                    "switch": "$.Data.Balance[0].Amount.Amount"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "currency",
+                    "switch": "$.Data.Balance[0].Amount.Currency"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "creditLineIncluded",
+                    "switch": "$.Data.Balance[0].CreditLine[0].Included"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "creditLineType",
+                    "switch": "$.Data.Balance[0].CreditLine[0].Type"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "creditLineAmount",
+                    "switch": "$.Data.Balance[0].CreditLine[0].Amount.Amount"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "creditLineCurrency",
+                    "switch": "$.Data.Balance[0].CreditLine[0].Amount.Currency"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 500,
+                    "mockFile": "mocks/account.getBalance.notFound.json"
+                }
+            },
+            "switchResponses": {
+                "ABCD1234CreditClosingAvailable2025-10-05T00:16:27.450Z139565245.99366EVRtrueAvailable9833203893.34FMU": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/account.getBalance.success.json"
+                }
+            }
+        },
+        {
+            "path": "/accounts/:accountId/balances",
+            "method": "GET",
+            "latency": 20,
+            "switch": [
+                "accountId"
+            ],
+            "responses": {
+                "get": {
+                    "httpStatus": 500,
+                    "mockFile": "mocks/account.getBalance.notFound.json"
+                }
+            },
+            "switchResponses": {
+                "123456": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/account.123456.balances.json"
+                },
+                "987654": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/account.987654.balances.json"
+                }
+            }
+        }
+    ]
+}

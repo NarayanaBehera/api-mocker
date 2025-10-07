@@ -1,0 +1,11 @@
+{
+                "AccountId": "30080098763459",
+                "Status": "Enabled",
+                "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
+                "Currency": "GBP",
+                "AccountType": "Personal",
+                "AccountSubType": "CurrentAccount",
+                "Nickname": "Bills",
+                "OpeningDate": "2020-01-16T06:06:06+00:00",
+                "MaturityDate": "2025-04-16T06:06:06+00:00"
+            }

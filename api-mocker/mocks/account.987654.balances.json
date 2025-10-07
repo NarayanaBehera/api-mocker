@@ -1,0 +1,41 @@
+{
+  "Data": {
+    "Balance": [
+      {
+        "AccountId": "987654",
+        "CreditDebitIndicator": "Credit",
+        "Type": "ClosingAvailable",
+        "DateTime": "2025-10-05T00:16:27.450Z",
+        "Amount": {
+          "Amount": "139565245.99366",
+          "Currency": "EVR"
+        },
+        "CreditLine": [
+          {
+            "Included": true,
+            "Type": "Available",
+            "Amount": {
+              "Amount": "9833203893.34",
+              "Currency": "FMU"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "Links": {
+    "Self": "string",
+    "First": "string",
+    "Prev": "string",
+    "Next": "string",
+    "Last": "string"
+  },
+  "Meta": {
+    "TotalPages": 0,
+    "FirstAvailableDateTime": "2025-10-05T00:16:27.450Z",
+    "LastAvailableDateTime": "2025-10-05T00:16:27.450Z",
+    "additionalProp1": "string",
+    "additionalProp2": "string",
+    "additionalProp3": "string"
+  }
+}

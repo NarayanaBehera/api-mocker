@@ -1,0 +1,6 @@
+{
+  "error": {
+    "code": "AccountId is not exist",
+    "message": "AccountId does not exist or it is invalid."
+  }
+}
