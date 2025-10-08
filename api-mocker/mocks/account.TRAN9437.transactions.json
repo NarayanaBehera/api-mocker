@@ -1,0 +1,106 @@
+{
+  "Data": {
+    "Transaction": [
+      {
+        "AccountId": "TRAN9437",
+        "TransactionId": "GDF1234",
+        "TransactionReference": "COTEX",
+        "StatementReference": ["string"],
+        "CreditDebitIndicator": "Credit",
+        "Status": "Booked",
+        "BookingDateTime": "2025-10-07T23:51:20.936Z",
+        "ValueDateTime": "2025-10-07T23:51:20.936Z",
+        "TransactionInformation": "string",
+        "AddressLine": "string",
+        "Amount": {
+          "Amount": "8381.597",
+          "Currency": "TDP"
+        },
+        "ChargeAmount": {
+          "Amount": "7761975170.16",
+          "Currency": "HTK"
+        },
+        "CurrencyExchange": {
+          "SourceCurrency": "DCT",
+          "TargetCurrency": "MGB",
+          "UnitCurrency": "OCW",
+          "ExchangeRate": 0,
+          "ContractIdentification": "string",
+          "QuotationDate": "2025-10-07T23:51:20.937Z",
+          "InstructedAmount": {
+            "Amount": "0272198320.7585",
+            "Currency": "SCR"
+          }
+        },
+        "BankTransactionCode": {
+          "Code": "string",
+          "SubCode": "string"
+        },
+        "ProprietaryBankTransactionCode": {
+          "Code": "string",
+          "Issuer": "string"
+        },
+        "Balance": {
+          "CreditDebitIndicator": "Credit",
+          "Type": "ClosingAvailable",
+          "Amount": {
+            "Amount": "91168.22",
+            "Currency": "KKP"
+          }
+        },
+        "MerchantDetails": {
+          "MerchantName": "string",
+          "MerchantCategoryCode": "stri"
+        },
+        "CreditorAgent": {
+          "SchemeName": "string",
+          "Identification": "string",
+          "Name": "string",
+          "PostalAddress": {}
+        },
+        "CreditorAccount": {
+          "SchemeName": "string",
+          "Identification": "string",
+          "Name": "string",
+          "SecondaryIdentification": "string"
+        },
+        "DebtorAgent": {
+          "SchemeName": "string",
+          "Identification": "string",
+          "Name": "string",
+          "PostalAddress": {}
+        },
+        "DebtorAccount": {
+          "SchemeName": "string",
+          "Identification": "string",
+          "Name": "string",
+          "SecondaryIdentification": "string"
+        },
+        "CardInstrument": {
+          "CardSchemeName": "AmericanExpress",
+          "AuthorisationType": "ConsumerDevice",
+          "Name": "string",
+          "Identification": "string"
+        },
+        "SupplementaryData": {
+          "additionalProp1": {}
+        }
+      }
+    ]
+  },
+  "Links": {
+    "Self": "string",
+    "First": "string",
+    "Prev": "string",
+    "Next": "string",
+    "Last": "string"
+  },
+  "Meta": {
+    "TotalPages": 0,
+    "FirstAvailableDateTime": "2025-10-07T23:51:20.937Z",
+    "LastAvailableDateTime": "2025-10-07T23:51:20.937Z",
+    "additionalProp1": "string",
+    "additionalProp2": "string",
+    "additionalProp3": "string"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "Data": {
+    "Transaction": [
+      {
+        "AccountId": "TRAN9875",
+        "TransactionId": "GDF1234",
+        "TransactionReference": "COTEX",
+        "CreditDebitIndicator": "Credit",
+        "Status": "Booked",
+        "BookingDateTime": "2025-10-07T23:51:20.936Z",
+        "ValueDateTime": "2025-10-07T23:51:20.936Z",
+        "Amount": {
+          "Amount": "8381.597",
+          "Currency": "TDP"
+        },
+        "ChargeAmount": {
+          "Amount": "7761975170.16",
+          "Currency": "HTK"
+        },
+        "Balance": {
+          "Amount": {
+            "Amount": "91168.22",
+            "Currency": "KKP"
+          }
+        },
+        "CardInstrument": {
+          "CardSchemeName": "AmericanExpress",
+          "AuthorisationType": "ConsumerDevice"
+        }
+      }
+    ]
+  }
+}

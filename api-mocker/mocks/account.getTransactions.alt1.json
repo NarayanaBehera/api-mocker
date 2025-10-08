@@ -1,0 +1,33 @@
+{
+  "Data": {
+    "Transaction": [
+      {
+        "AccountId": "ALT12345",
+        "TransactionId": "TXN0001",
+        "TransactionReference": "REF001",
+        "CreditDebitIndicator": "Debit",
+        "Status": "Pending",
+        "BookingDateTime": "2025-10-06T10:20:00.000Z",
+        "ValueDateTime": "2025-10-06T10:20:00.000Z",
+        "Amount": {
+          "Amount": "1200.50",
+          "Currency": "USD"
+        },
+        "ChargeAmount": {
+          "Amount": "10.00",
+          "Currency": "USD"
+        },
+        "Balance": {
+          "Amount": {
+            "Amount": "50000.00",
+            "Currency": "USD"
+          }
+        },
+        "CardInstrument": {
+          "CardSchemeName": "VISA",
+          "AuthorisationType": "PIN"
+        }
+      }
+    ]
+  }
+}

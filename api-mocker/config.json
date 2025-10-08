@@ -239,6 +239,132 @@
                     "mockFile": "mocks/account.987654.balances.json"
                 }
             }
+        },
+        {
+            "path": "/accounts/getTransaction",
+            "method": "POST",
+            "latency": 20,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "accountId",
+                    "switch": "$.Data.Transaction[0].AccountId"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "transactionId",
+                    "switch": "$.Data.Transaction[0].TransactionId"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "transactionReference",
+                    "switch": "$.Data.Transaction[0].TransactionReference"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "creditDebitIndicator",
+                    "switch": "$.Data.Transaction[0].CreditDebitIndicator"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "status",
+                    "switch": "$.Data.Transaction[0].Status"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "bookingDateTime",
+                    "switch": "$.Data.Transaction[0].BookingDateTime"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "valueDateTime",
+                    "switch": "$.Data.Transaction[0].ValueDateTime"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "amount",
+                    "switch": "$.Data.Transaction[0].Amount.Amount"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "currency",
+                    "switch": "$.Data.Transaction[0].Amount.Currency"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "chargeAmount",
+                    "switch": "$.Data.Transaction[0].ChargeAmount.Amount"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "chargeCurrency",
+                    "switch": "$.Data.Transaction[0].ChargeAmount.Currency"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "balanceAmount",
+                    "switch": "$.Data.Transaction[0].Balance.Amount.Amount"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "balanceCurrency",
+                    "switch": "$.Data.Transaction[0].Balance.Amount.Currency"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "cardScheme",
+                    "switch": "$.Data.Transaction[0].CardInstrument.CardSchemeName"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "authorisationType",
+                    "switch": "$.Data.Transaction[0].CardInstrument.AuthorisationType"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 500,
+                    "mockFile": "mocks/account.getTransactions.notFound.json"
+                }
+            },
+            "switchResponses": {
+                "TRAN9875GDF1234COTEXCreditBooked2025-10-07T23:51:20.936Z2025-10-07T23:51:20.936Z8381.597TDP7761975170.16HTK91168.22KKPAmericanExpressConsumerDevice": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/account.getTransactions.success.json"
+                },
+                "ALT12345TXN0001REF001DebitPending2025-10-06T10:20:00.000Z2025-10-06T10:20:00.000Z1200.50USD10.00USD50000.00USDVISAPIN": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/account.getTransactions.alt1.json"
+                },
+                "ALT9999TXN9999INVALIDCreditRejected2025-10-01T15:00:00.000Z2025-10-01T15:00:00.000Z0.00USD0.00USD0.00USDMasterCardContactless": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/account.getTransactions.alt2.json"
+                }
+            }
+        },
+        {
+            "path": "/accounts/:accountId/transactions",
+            "method": "GET",
+            "latency": 20,
+            "switch": [
+                "accountId"
+            ],
+            "responses": {
+                "get": {
+                    "httpStatus": 500,
+                    "mockFile": "mocks/account.getTransactions.notFound.json"
+                }
+            },
+            "switchResponses": {
+                "TRAN9437": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/account.TRAN9437.transactions.json"
+                },
+                "ACC8337": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/account.ACC8337.transactions.json"
+                }
+            }
         }
     ]
 }

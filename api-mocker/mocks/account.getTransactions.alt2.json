@@ -1,0 +1,33 @@
+{
+  "Data": {
+    "Transaction": [
+      {
+        "AccountId": "ALT9999",
+        "TransactionId": "TXN9999",
+        "TransactionReference": "INVALID",
+        "CreditDebitIndicator": "Credit",
+        "Status": "Rejected",
+        "BookingDateTime": "2025-10-01T15:00:00.000Z",
+        "ValueDateTime": "2025-10-01T15:00:00.000Z",
+        "Amount": {
+          "Amount": "0.00",
+          "Currency": "USD"
+        },
+        "ChargeAmount": {
+          "Amount": "0.00",
+          "Currency": "USD"
+        },
+        "Balance": {
+          "Amount": {
+            "Amount": "0.00",
+            "Currency": "USD"
+          }
+        },
+        "CardInstrument": {
+          "CardSchemeName": "MasterCard",
+          "AuthorisationType": "Contactless"
+        }
+      }
+    ]
+  }
+}

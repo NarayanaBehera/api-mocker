@@ -29,7 +29,7 @@ config.routes.forEach(route => {
         let switchKey = '';
         let debugSwitchPairs = [];
 
-        // Build switchKey by reading all fields
+        // Build switchKey by reading all fields safely
         for (const sw of route.switch) {
           let value = '';
 
@@ -37,7 +37,7 @@ config.routes.forEach(route => {
             value = req.params[sw] || '';
           } else if (sw.type === 'jsonpath') {
             const result = jsonpath.query(req.body, sw.switch);
-            value = result[0] !== undefined ? String(result[0]) : '';
+            value = result[0] !== undefined && result[0] !== null ? String(result[0]) : '';
           }
 
           switchKey += value;
