@@ -1,0 +1,9 @@
+{
+  "orderId": "KH1234",
+  "status": "order placed",
+  "items": [
+    {"name": "Laptop", "qty": 1},
+    {"name": "Mouse", "qty": 2}
+  ],
+  "estimatedDelivery": "2025-10-04"
+}

@@ -1,0 +1,9 @@
+{
+  "orderId": "1002",
+  "status": "order shipped",
+  "items": [
+    {"name": "Phone", "qty": 1}
+  ],
+  "shippedDate": "2025-10-05",
+  "trackingNumber": "SHIP123456"
+}

@@ -365,6 +365,34 @@
                     "mockFile": "mocks/account.ACC8337.transactions.json"
                 }
             }
+        },
+		{
+            "path": "/orders-status/:orderId",
+            "method": "GET",
+            "latency": 50,
+            "switch": [
+                "orderId"
+            ],
+            "responses": {
+                "get": {
+                    "httpStatus": 500,
+                    "mockFile": "mocks/order.notFound.json"
+                }
+            },
+            "switchResponses": {
+                "KH1234": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/order.placed.json"
+                },
+                "NB5468": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/order.shipped.json"
+                },
+                "KK8520": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/order.delivered.json"
+                }
+            }
         }
     ]
 }

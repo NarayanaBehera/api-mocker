@@ -1,0 +1,45 @@
+mocks/order.placed.json
+
+{
+  "orderId": "KH1234",
+  "status": "order placed",
+  "items": [
+    {"name": "Laptop", "qty": 1},
+    {"name": "Mouse", "qty": 2}
+  ],
+  "estimatedDelivery": "2025-10-04"
+}
+
+
+mocks/order.shipped.json
+
+{
+  "orderId": "1002",
+  "status": "order shipped",
+  "items": [
+    {"name": "Phone", "qty": 1}
+  ],
+  "shippedDate": "2025-10-05",
+  "trackingNumber": "SHIP123456"
+}
+
+
+mocks/order.delivered.json
+
+{
+  "orderId": "1003",
+  "status": "order delivered",
+  "items": [
+    {"name": "Headphones", "qty": 1},
+    {"name": "Charger", "qty": 1}
+  ],
+  "deliveredDate": "2025-10-08"
+}
+
+
+mocks/order.notFound.json
+
+{
+  "status": 404,
+  "message": "Order not found"
+}

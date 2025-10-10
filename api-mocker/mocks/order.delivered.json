@@ -1,0 +1,10 @@
+
+{
+  "orderId": "1003",
+  "status": "order delivered",
+  "items": [
+    {"name": "Headphones", "qty": 1},
+    {"name": "Charger", "qty": 1}
+  ],
+  "deliveredDate": "2025-10-08"
+}
