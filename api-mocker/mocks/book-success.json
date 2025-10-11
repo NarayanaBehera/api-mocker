@@ -1,0 +1,14 @@
+{
+  "bookingId": "TRV1001",
+  "status": "Confirmed",
+  "message": "Your booking is confirmed!",
+  "flightNo": "AI302",
+  "passengerName": "Narayana Behera",
+  "email": "narayana@gmail.com",
+  "seat": "12A",
+  "seatPreference": "Window",
+  "class": "Economy",
+  "from": "Bangalore",
+  "to": "Goa",
+  "travelDate": "2025-10-20"
+}

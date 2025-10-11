@@ -366,7 +366,7 @@
                 }
             }
         },
-		{
+        {
             "path": "/orders-status/:orderId",
             "method": "GET",
             "latency": 50,
@@ -391,6 +391,108 @@
                 "KK8520": {
                     "httpStatus": 200,
                     "mockFile": "mocks/order.delivered.json"
+                }
+            }
+        },
+        {
+            "method": "GET",
+            "path": "/flights",
+            "response": {
+                "status": 200,
+                "file": "mocks/flights-list.json"
+            }
+        },
+        {
+            "path": "/book",
+            "method": "POST",
+            "latency": 50,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "flightNo",
+                    "switch": "$.flightNo"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "email",
+                    "switch": "$.email"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "travelDate",
+                    "switch": "$.travelDate"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 500,
+                    "mockFile": "mocks/book-failure.json"
+                }
+            },
+            "switchResponses": {
+                "AI302narayana@gmail.com2025-10-20": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/book-success.json"
+                },
+                "6E102kuna@gmail.com2025-10-22": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/book-alt.json"
+                }
+            }
+        },
+        {
+            "path": "/status",
+            "method": "POST",
+            "latency": 40,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "bookingId",
+                    "switch": "$.bookingId"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 404,
+                    "mockFile": "mocks/status-notFound.json"
+                }
+            },
+            "switchResponses": {
+                "TRV1001": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/status-confirmed.json"
+                },
+                "TRV1002": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/status-delayed.json"
+                },
+                "TRV1003": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/status-cancelled.json"
+                }
+            }
+        },
+        {
+            "path": "/cancel",
+            "method": "POST",
+            "latency": 40,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "bookingId",
+                    "switch": "$.bookingId"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 404,
+                    "mockFile": "mocks/cancel-failed.json"
+                }
+            },
+            "switchResponses": {
+                "TRV1001": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/cancel-success.json"
                 }
             }
         }

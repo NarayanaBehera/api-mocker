@@ -1,0 +1,5 @@
+{
+  "bookingId": "Unknown",
+  "status": "Not Found",
+  "message": "No booking found for the provided Booking ID."
+}

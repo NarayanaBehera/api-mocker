@@ -1,0 +1,14 @@
+{
+  "bookingId": "TRV1002",
+  "status": "Confirmed",
+  "message": "Booking successful!",
+  "flightNo": "6E102",
+  "passengerName": "Kuna",
+  "email": "kuna@gmail.com",
+  "seat": "14C",
+  "seatPreference": "Aisle",
+  "class": "Business",
+  "from": "Mumbai",
+  "to": "Delhi",
+  "travelDate": "2025-10-22"
+}

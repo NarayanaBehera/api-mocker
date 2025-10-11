@@ -1,0 +1,10 @@
+{
+  "bookingId": "TRV1002",
+  "status": "Flight Delayed",
+  "flightNo": "6E102",
+  "from": "Mumbai",
+  "to": "Delhi",
+  "seat": "14C",
+  "travelDate": "2025-10-22",
+  "newDepartureTime": "2025-10-22T12:30:00Z"
+}

@@ -1,0 +1,9 @@
+{
+  "bookingId": "TRV1001",
+  "status": "Boarding Soon",
+  "flightNo": "AI302",
+  "from": "Bangalore",
+  "to": "Goa",
+  "seat": "12A",
+  "travelDate": "2025-10-20"
+}

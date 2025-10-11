@@ -1,0 +1,7 @@
+{
+  "flights": [
+    { "flightNo": "AI302", "from": "Bangalore", "to": "Goa", "price": 5200 },
+    { "flightNo": "6E102", "from": "Mumbai", "to": "Delhi", "price": 4800 },
+    { "flightNo": "UK201", "from": "Delhi", "to": "Kolkata", "price": 5500 }
+  ]
+}
