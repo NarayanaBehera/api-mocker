@@ -1,0 +1,6 @@
+{
+  "pnr": "PNR1234",
+  "status": "CANCELLED",
+  "refundAmount": 800,
+  "refunded": true
+}

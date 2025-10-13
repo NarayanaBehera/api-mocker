@@ -1,0 +1,13 @@
+{
+  "pnr": "PNR1234",
+  "status": "CONFIRMED",
+  "trainNo": "TR1201",
+  "name": "Shatabdi Express",
+  "from": "Delhi",
+  "to": "Lucknow",
+  "journeyDate": "2025-10-25",
+  "passenger": { "name": "Narayana Behera", "email": "narayana@gmail.com" },
+  "coach": "C2",
+  "seat": "21",
+  "fare": 850
+}

@@ -495,6 +495,109 @@
                     "mockFile": "mocks/cancel-success.json"
                 }
             }
+        },
+        {
+            "path": "/trains",
+            "method": "GET",
+            "latency": 40,
+            "response": {
+                "status": 200,
+                "file": "mocks/trains-list.json"
+            }
+        },
+        {
+            "path": "/trains/book",
+            "method": "POST",
+            "latency": 60,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "trainNo",
+                    "switch": "$.trainNo"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "email",
+                    "switch": "$.email"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "journeyDate",
+                    "switch": "$.journeyDate"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 500,
+                    "mockFile": "mocks/train-book-failure.json"
+                }
+            },
+            "switchResponses": {
+                "TR1201narayana@gmail.com2025-10-25": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/train-book-success.json"
+                },
+                "TR2045kuna@gmail.com2025-10-26": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/train-book-alt.json"
+                }
+            }
+        },
+        {
+            "path": "/trains/status",
+            "method": "POST",
+            "latency": 40,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "pnr",
+                    "switch": "$.pnr"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 404,
+                    "mockFile": "mocks/train-status-notFound.json"
+                }
+            },
+            "switchResponses": {
+                "PNR1234": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/train-status-confirmed.json"
+                },
+                "PNR5678": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/train-status-waiting.json"
+                },
+                "PNR9999": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/train-status-cancelled.json"
+                }
+            }
+        },
+        {
+            "path": "/trains/cancel",
+            "method": "POST",
+            "latency": 50,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "pnr",
+                    "switch": "$.pnr"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 404,
+                    "mockFile": "mocks/train-cancel-failed.json"
+                }
+            },
+            "switchResponses": {
+                "PNR1234": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/train-cancel-success.json"
+                }
+            }
         }
     ]
 }

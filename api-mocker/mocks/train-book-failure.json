@@ -1,0 +1,4 @@
+{
+  "error": "Booking failed",
+  "reason": "Train not available or quota full"
+}

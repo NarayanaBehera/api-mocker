@@ -1,0 +1,4 @@
+{
+  "error": "Cancellation failed",
+  "reason": "PNR not found or already cancelled"
+}

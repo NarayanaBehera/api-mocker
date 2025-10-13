@@ -1,0 +1,7 @@
+{
+  "trains": [
+    { "trainNo": "TR1201", "name": "Shatabdi Express", "from": "Delhi", "to": "Lucknow", "departure": "2025-10-25T06:00:00+05:30", "arrival": "2025-10-25T11:30:00+05:30", "fare": 850 },
+    { "trainNo": "TR2045", "name": "Rajdhani Express", "from": "Mumbai", "to": "Delhi", "departure": "2025-10-26T17:00:00+05:30", "arrival": "2025-10-27T08:00:00+05:30", "fare": 2150 },
+    { "trainNo": "TR3050", "name": "Chennai Express", "from": "Chennai", "to": "Bangalore", "departure": "2025-10-27T08:00:00+05:30", "arrival": "2025-10-27T12:30:00+05:30", "fare": 650 }
+  ]
+}

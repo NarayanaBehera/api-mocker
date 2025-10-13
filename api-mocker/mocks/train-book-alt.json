@@ -1,0 +1,13 @@
+{
+  "pnr": "PNR5678",
+  "status": "WAITLISTED",
+  "trainNo": "TR2045",
+  "name": "Rajdhani Express",
+  "from": "Mumbai",
+  "to": "Delhi",
+  "journeyDate": "2025-10-26",
+  "passenger": { "name": "Kuna", "email": "kuna@gmail.com" },
+  "coach": "B3",
+  "seat": "WL-12",
+  "fare": 2150
+}

@@ -1,0 +1,9 @@
+{
+  "pnr": "PNR1234",
+  "trainNo": "TR1201",
+  "status": "CONFIRMED",
+  "coach": "C2",
+  "seat": "21",
+  "journeyDate": "2025-10-25",
+  "lastUpdated": "2025-10-13T06:00:00Z"
+}

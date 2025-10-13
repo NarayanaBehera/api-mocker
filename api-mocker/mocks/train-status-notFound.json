@@ -1,0 +1,6 @@
+{
+  "error": "PNR not found",
+  "message": "The provided PNR number does not exist or is invalid. Please check and try again.",
+  "status": "NOT_FOUND",
+  "timestamp": "2025-10-13T06:00:00Z"
+}
