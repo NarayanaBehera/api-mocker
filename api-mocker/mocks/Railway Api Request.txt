@@ -1,0 +1,107 @@
+Railway Booking API — All Request Payloads
+ 1. /trains (GET)
+
+No request body required
+
+GET http://localhost:9437/trains
+
+Returns mocks/trains-list.json
+
+
+
+2. /trains/book (POST)
+
+Request for successful booking (→ train-book-success.json)
+
+{
+  "trainNo": "TR1201",
+  "email": "narayana@gmail.com",
+  "journeyDate": "2025-10-25",
+  "passenger": {
+    "name": "Narayana Behera",
+    "age": 28,
+    "gender": "Male"
+  },
+  "class": "AC Chair Car",
+  "paymentMode": "UPI"
+}
+
+
+Request for alternate booking (→ train-book-alt.json)
+
+{
+  "trainNo": "TR2045",
+  "email": "kuna@gmail.com",
+  "journeyDate": "2025-10-26",
+  "passenger": {
+    "name": "Kuna Kumar",
+    "age": 30,
+    "gender": "Male"
+  },
+  "class": "3A",
+  "paymentMode": "Credit Card"
+}
+
+
+Request for failure (→ train-book-failure.json)
+
+{
+  "trainNo": "TR9999",
+  "email": "xyz@gmail.com",
+  "journeyDate": "2025-10-25",
+  "passenger": {
+    "name": "Test User",
+    "age": 27,
+    "gender": "Female"
+  },
+  "class": "Sleeper",
+  "paymentMode": "Cash"
+}
+
+
+
+3. /trains/status (POST)
+
+Confirmed ticket (→ train-status-confirmed.json)
+
+{
+  "pnr": "PNR1234"
+}
+
+
+Waiting list (→ train-status-waiting.json)
+
+{
+  "pnr": "PNR5678"
+}
+
+
+Cancelled ticket (→ train-status-cancelled.json)
+
+{
+  "pnr": "PNR9999"
+}
+
+
+Invalid PNR (→ train-status-notFound.json)
+
+{
+  "pnr": "INVALID001"
+}
+
+
+
+4. /trains/cancel (POST)
+
+Successful cancellation (→ train-cancel-success.json)
+
+{
+  "pnr": "PNR1234"
+}
+
+
+Failed cancellation (→ train-cancel-failed.json)
+
+{
+  "pnr": "INVALID123"
+}

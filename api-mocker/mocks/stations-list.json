@@ -1,0 +1,8 @@
+{
+  "stations": [
+    { "stationId": "PS1001", "name": "Central Police Station", "city": "Delhi" },
+    { "stationId": "PS1002", "name": "Bandra Police Station", "city": "Mumbai" },
+    { "stationId": "PS1003", "name": "T Nagar Police Station", "city": "Chennai" },
+    { "stationId": "PS1004", "name": "Bhubaneswar Police Station", "city": "Odisha" }
+  ]
+}

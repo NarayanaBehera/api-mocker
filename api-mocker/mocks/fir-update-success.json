@@ -1,0 +1,8 @@
+{
+  "status": "success",
+  "message": "FIR updated successfully",
+  "firId": "FIR1001",
+  "updateType": "InvestigationStarted",
+  "updatedBy": "Officer Meena",
+  "timestamp": "2025-10-14T12:45:00Z"
+}

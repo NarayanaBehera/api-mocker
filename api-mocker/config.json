@@ -598,6 +598,137 @@
                     "mockFile": "mocks/train-cancel-success.json"
                 }
             }
+        },
+        {
+            "method": "GET",
+            "path": "/police/stations",
+            "response": {
+                "status": 200,
+                "file": "mocks/stations-list.json"
+            }
+        },
+        {
+            "path": "/police/fir/register",
+            "method": "POST",
+            "latency": 50,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "complaintId",
+                    "switch": "$.complaintId"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "victimName",
+                    "switch": "$.victimName"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "crimeType",
+                    "switch": "$.crimeType"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 500,
+                    "mockFile": "mocks/fir-register-failed.json"
+                }
+            },
+            "switchResponses": {
+                "C1001John DoeTheft": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/fir-register-success.json"
+                },
+                "C2002Jane SmithAssault": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/fir-register-alt.json"
+                }
+            }
+        },
+        {
+            "path": "/police/fir/status",
+            "method": "POST",
+            "latency": 40,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "firId",
+                    "switch": "$.firId"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 404,
+                    "mockFile": "mocks/fir-status-notFound.json"
+                }
+            },
+            "switchResponses": {
+                "FIR1001": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/fir-status-registered.json"
+                },
+                "FIR1002": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/fir-status-underInvestigation.json"
+                },
+                "FIR1003": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/fir-status-closed.json"
+                }
+            }
+        },
+        {
+            "path": "/police/fir/update",
+            "method": "POST",
+            "latency": 40,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "firId",
+                    "switch": "$.firId"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "updateType",
+                    "switch": "$.updateType"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 500,
+                    "mockFile": "mocks/fir-update-failed.json"
+                }
+            },
+            "switchResponses": {
+                "FIR1001InvestigationStarted": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/fir-update-success.json"
+                }
+            }
+        },
+        {
+            "path": "/police/fir/close",
+            "method": "POST",
+            "latency": 30,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "firId",
+                    "switch": "$.firId"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 404,
+                    "mockFile": "mocks/fir-close-failed.json"
+                }
+            },
+            "switchResponses": {
+                "FIR1001": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/fir-close-success.json"
+                }
+            }
         }
     ]
 }

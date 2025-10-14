@@ -1,0 +1,97 @@
+/police/stations (GET)
+
+
+/police/fir/register (POST)
+
+Request #1 (Success)
+{
+  "complaintId": "C1001",
+  "victimName": "John Doe",
+  "crimeType": "Theft",
+  "description": "Bike stolen from parking area",
+  "stationId": "PS1001"
+}
+
+Request #2 (Alternate Success)
+{
+  "complaintId": "C2002",
+  "victimName": "Jane Smith",
+  "crimeType": "Assault",
+  "description": "Physical assault reported near market",
+  "stationId": "PS1002"
+}
+
+Request #3 (Failure Case)
+{
+  "complaintId": "",
+  "victimName": "",
+  "crimeType": "Theft",
+  "description": "Missing details",
+  "stationId": ""
+}
+
+
+
+/police/fir/status (POST)
+
+Request #1 (Registered Case)
+{
+  "firId": "FIR1001"
+}
+
+Request #2 (Under Investigation)
+{
+  "firId": "FIR1002"
+}
+
+Request #3 (Closed Case)
+{
+  "firId": "FIR1003"
+}
+
+Request #4 (Not Found)
+{
+  "firId": "FIR9999"
+}
+
+
+
+/police/fir/update (POST)
+
+Request #1 (Investigation Started)
+{
+  "firId": "FIR1001",
+  "updateType": "InvestigationStarted",
+  "remarks": "Case assigned to Officer Meena"
+}
+
+Request #2 (Progress Update)
+{
+  "firId": "FIR1002",
+  "updateType": "WitnessInterview",
+  "remarks": "Two witnesses have been interviewed."
+}
+
+Request #3 (Invalid FIR ID)
+{
+  "firId": "FIR9999",
+  "updateType": "InvalidUpdate",
+  "remarks": "Invalid FIR ID provided"
+}
+
+
+
+
+/police/fir/close (POST)
+
+Request #1 (Close Successfully)
+{
+  "firId": "FIR1001",
+  "remarks": "Investigation complete. Case closed."
+}
+
+Request #2 (Close Failed)
+{
+  "firId": "FIR1004",
+  "remarks": "Unable to close, case not ready."
+}

@@ -1,0 +1,7 @@
+{
+  "status": "success",
+  "message": "FIR closed successfully",
+  "firId": "FIR1001",
+  "closedBy": "Inspector Rajesh Kumar",
+  "closedOn": "2025-10-14T14:00:00Z"
+}
