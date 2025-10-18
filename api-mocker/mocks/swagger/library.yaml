@@ -1,0 +1,198 @@
+openapi: 3.0.1
+info:
+  title: Library API
+  description: API for Library Books - List, Borrow, Status, Return, and Close operations.
+  version: 1.0.0
+paths:
+  /library/books:
+    get:
+      summary: Get list of books
+      operationId: getBooks
+      responses:
+        '200':
+          description: Successful response with list of books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    bookId:
+                      type: string
+                      example: B1001
+                    title:
+                      type: string
+                      example: Clean Code
+                    author:
+                      type: string
+                      example: Robert C. Martin
+                    status:
+                      type: string
+                      example: Available
+
+  /library/book/borrow:
+    post:
+      summary: Borrow a book
+      operationId: borrowBook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookId:
+                  type: string
+                  example: B1001
+                memberId:
+                  type: string
+                  example: M001
+                borrowDate:
+                  type: string
+                  format: date
+                  example: 2025-10-17
+      responses:
+        '200':
+          description: Book borrowed successfully
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    message: Book borrowed successfully
+                    bookId: B1001
+                    memberId: M001
+                    dueDate: 2025-10-31
+                alternate:
+                  value:
+                    message: Book borrowed successfully (alternate record)
+                    bookId: B2002
+                    memberId: M002
+                    dueDate: 2025-11-01
+        '500':
+          description: Borrow failed
+          content:
+            application/json:
+              example:
+                error: Book borrowing failed — book unavailable or member limit exceeded
+                code: 500
+
+  /library/book/status:
+    post:
+      summary: Get book status
+      operationId: getBookStatus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookId:
+                  type: string
+                  example: B1001
+      responses:
+        '200':
+          description: Status retrieved
+          content:
+            application/json:
+              examples:
+                available:
+                  value:
+                    bookId: B1001
+                    title: Clean Code
+                    status: Available
+                borrowed:
+                  value:
+                    bookId: B2002
+                    title: Effective Java
+                    status: Borrowed
+                    dueDate: 2025-10-30
+                reserved:
+                  value:
+                    bookId: B3003
+                    title: Design Patterns
+                    status: Reserved
+                    expectedAvailability: 2025-10-25
+        '404':
+          description: Book not found
+          content:
+            application/json:
+              example:
+                error: Book not found in library database
+                code: 404
+
+  /library/book/return:
+    post:
+      summary: Return a borrowed book
+      operationId: returnBook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookId:
+                  type: string
+                  example: B1001
+                memberId:
+                  type: string
+                  example: M001
+                returnDate:
+                  type: string
+                  format: date
+                  example: 2025-10-20
+      responses:
+        '200':
+          description: Book returned successfully
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    message: Book returned successfully
+                    bookId: B1001
+                    status: Available
+        '500':
+          description: Return failed
+          content:
+            application/json:
+              example:
+                error: Return failed — invalid book/member ID
+                code: 500
+
+  /library/book/close:
+    post:
+      summary: Close a book record
+      operationId: closeBook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookId:
+                  type: string
+                  example: B1001
+                remarks:
+                  type: string
+                  example: Book permanently removed due to damage
+      responses:
+        '200':
+          description: Book record closed successfully
+          content:
+            application/json:
+              example:
+                message: Book record closed successfully
+                bookId: B1001
+                status: Closed
+        '404':
+          description: Close failed
+          content:
+            application/json:
+              example:
+                error: Book not found or already closed
+                code: 404

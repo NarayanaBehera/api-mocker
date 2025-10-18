@@ -1,0 +1,74 @@
+All Requests
+/library/books — GET
+// GET request — no request body required
+
+/library/book/borrow — POST
+book-borrow-success.json
+{
+  "bookId": "B1001",
+  "memberId": "M001",
+  "borrowDate": "2025-10-17"
+}
+
+book-borrow-alt.json
+{
+  "bookId": "B2002",
+  "memberId": "M002",
+  "borrowDate": "2025-10-17"
+}
+
+book-borrow-failed.json
+{
+  "bookId": "B3003",
+  "memberId": "M003",
+  "borrowDate": "2025-10-17"
+}
+
+/library/book/status — POST
+book-status-available.json
+{
+  "bookId": "B1001"
+}
+
+book-status-borrowed.json
+{
+  "bookId": "B2002"
+}
+
+book-status-reserved.json
+{
+  "bookId": "B3003"
+}
+
+book-status-notFound.json
+{
+  "bookId": "B4004"
+}
+
+/library/book/return — POST
+book-return-success.json
+{
+  "bookId": "B1001",
+  "memberId": "M001",
+  "returnDate": "2025-10-20"
+}
+
+book-return-failed.json
+{
+  "bookId": "B3003",
+  "memberId": "M003",
+  "returnDate": "2025-10-20"
+}
+
+/library/book/close — POST
+book-close-success.json
+{
+  "bookId": "B1001",
+  "remarks": "Book permanently removed due to damage"
+}
+
+book-close-failed.json
+{
+  "bookId": "B3003",
+  "remarks": "Book not found or already closed"
+}

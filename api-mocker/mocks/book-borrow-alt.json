@@ -1,0 +1,6 @@
+{
+  "message": "Book borrowed successfully (alternate record)",
+  "bookId": "B2002",
+  "memberId": "M002",
+  "dueDate": "2025-11-01"
+}

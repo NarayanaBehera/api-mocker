@@ -729,6 +729,132 @@
                     "mockFile": "mocks/fir-close-success.json"
                 }
             }
+        },
+        {
+            "path": "/library/books",
+            "method": "GET",
+            "response": {
+                "status": 200,
+                "file": "mocks/books-list.json"
+            }
+        },
+        {
+            "path": "/library/book/borrow",
+            "method": "POST",
+            "latency": 50,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "bookId",
+                    "switch": "$.bookId"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "memberId",
+                    "switch": "$.memberId"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 500,
+                    "mockFile": "mocks/book-borrow-failed.json"
+                }
+            },
+            "switchResponses": {
+                "B1001M001": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/book-borrow-success.json"
+                },
+                "B2002M002": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/book-borrow-alt.json"
+                }
+            }
+        },
+        {
+            "path": "/library/book/status",
+            "method": "POST",
+            "latency": 40,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "bookId",
+                    "switch": "$.bookId"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 404,
+                    "mockFile": "mocks/book-status-notFound.json"
+                }
+            },
+            "switchResponses": {
+                "B1001": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/book-status-available.json"
+                },
+                "B2002": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/book-status-borrowed.json"
+                },
+                "B3003": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/book-status-reserved.json"
+                }
+            }
+        },
+        {
+            "path": "/library/book/return",
+            "method": "POST",
+            "latency": 40,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "bookId",
+                    "switch": "$.bookId"
+                },
+                {
+                    "type": "jsonpath",
+                    "key": "memberId",
+                    "switch": "$.memberId"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 500,
+                    "mockFile": "mocks/book-return-failed.json"
+                }
+            },
+            "switchResponses": {
+                "B1001M001": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/book-return-success.json"
+                }
+            }
+        },
+        {
+            "path": "/library/book/close",
+            "method": "POST",
+            "latency": 30,
+            "switch": [
+                {
+                    "type": "jsonpath",
+                    "key": "bookId",
+                    "switch": "$.bookId"
+                }
+            ],
+            "responses": {
+                "post": {
+                    "httpStatus": 404,
+                    "mockFile": "mocks/book-close-failed.json"
+                }
+            },
+            "switchResponses": {
+                "B1001": {
+                    "httpStatus": 200,
+                    "mockFile": "mocks/book-close-success.json"
+                }
+            }
         }
     ]
 }

@@ -1,0 +1,6 @@
+{
+  "message": "Book borrowed successfully",
+  "bookId": "B1001",
+  "memberId": "M001",
+  "dueDate": "2025-10-31"
+}

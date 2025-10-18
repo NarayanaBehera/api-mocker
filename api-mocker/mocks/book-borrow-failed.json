@@ -1,0 +1,4 @@
+{
+  "error": "Book borrowing failed — book unavailable or member limit exceeded",
+  "code": 500
+}

@@ -1,0 +1,4 @@
+{
+  "error": "Book not found in library database",
+  "code": 404
+}

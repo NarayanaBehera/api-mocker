@@ -1,0 +1,5 @@
+{
+  "message": "Book returned successfully",
+  "bookId": "B1001",
+  "status": "Available"
+}

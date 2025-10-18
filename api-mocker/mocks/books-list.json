@@ -1,0 +1,5 @@
+[
+  { "bookId": "B1001", "title": "Clean Code", "author": "Robert C. Martin", "status": "Available" },
+  { "bookId": "B2002", "title": "Effective Java", "author": "Joshua Bloch", "status": "Borrowed" },
+  { "bookId": "B3003", "title": "Design Patterns", "author": "Erich Gamma", "status": "Reserved" }
+]
